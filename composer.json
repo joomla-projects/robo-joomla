@@ -1,0 +1,21 @@
+{
+    "name": "joomla-projects/robo-joomla",
+    "description": "Robo tasks for Joomla! development, build, testing and everything",
+    "type": "robo-tasks",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Robert Deutz",
+            "email": "rdeutz@googlemail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "JoomlaRobo\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=5.5.0",
+        "consolidation/robo": "~1"
+    }
+}
