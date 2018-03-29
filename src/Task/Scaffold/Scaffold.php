@@ -8,7 +8,7 @@ use Robo\Contract\BuilderAwareInterface;
 
 /**
  * Scaffolding extensions
- * 
+ *
  * @since 0.1.0
  */
 abstract class Scaffold extends BaseTask implements \Robo\Contract\BuilderAwareInterface
@@ -26,7 +26,7 @@ abstract class Scaffold extends BaseTask implements \Robo\Contract\BuilderAwareI
      * @var string $baseDir
      */
     protected $baseDir = null;
-    
+
     /**
      * Class constructor
      *
@@ -39,7 +39,7 @@ abstract class Scaffold extends BaseTask implements \Robo\Contract\BuilderAwareI
 
     /**
      * Set the base directory
-     * 
+     *
      * @param string $baseDir
      */
     public function setBaseDir($baseDir)
@@ -62,10 +62,10 @@ abstract class Scaffold extends BaseTask implements \Robo\Contract\BuilderAwareI
             );
         }
 
-        if (!file_exists($this->baseDir)) 
+        if (!file_exists($this->baseDir))
         {
             $collection = $this->collectionBuilder();
-            
+
             $collection->taskFileSystemStack()
                 ->mkdir($this->baseDir)
                 ->run();
