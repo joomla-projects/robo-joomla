@@ -20,6 +20,8 @@ Robo tasks for Joomla! development, build, testing and everything
 
 #### Components
 
+Use the command `vendor/bin/robo Scaffold:Component com_test` for creating the folders for a component.
+
 ```
 $ vendor/bin/robo Scaffold:Component com_test
  [JoomlaScaffold\ScaffoldComponent] Creating Component com_test in code
