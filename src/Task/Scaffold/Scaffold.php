@@ -1,20 +1,15 @@
 <?php
 namespace JoomlaRobo\Task\Scaffold;
 
-use Robo\Task\BaseTask;
-use Robo\Exception\TaskException;
-use Robo\Common\BuilderAwareTrait;
-use Robo\Contract\BuilderAwareInterface;
+use JoomlaRobo\Task\JoomlaTask;
 
 /**
  * Scaffolding extensions
  * 
  * @since 0.1.0
  */
-abstract class Scaffold extends BaseTask implements \Robo\Contract\BuilderAwareInterface
+abstract class Scaffold extends JoomlaTask
 {
-    use BuilderAwareTrait;
-
     /**
      * Name of the extension
      * @var string $name
