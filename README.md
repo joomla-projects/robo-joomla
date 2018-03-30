@@ -7,6 +7,8 @@ Robo tasks for Joomla! development, build, testing and everything
   * `composer install`
   * Initialized here. Please run `robo init` to create a new RoboFile.
 
+Read more about [how to install composer](https://getcomposer.org/doc/00-intro.md) here.
+
 ## Function overview:
 
 # Scaffold
