@@ -33,7 +33,7 @@ class TestRunSelenium extends Test
 
 		// Execute the task
 		$this->collectionBuilder()->taskExec('PATH="$PATH:' . $webDriverPath . '" java -jar ' . $this->seleniumFolder .
-			'/bin/selenium-server-standalone.jar')->run();
+			'/bin/selenium-server-standalone.jar >> selenium.log 2>&1 &')->run();
 
 	}
 
