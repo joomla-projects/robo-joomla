@@ -5,7 +5,7 @@ Robo tasks for Joomla! development, build, testing and everything
 ## Installation (Standalone):
 
   * `composer install`
-  * Initialized here. Please run `robo init` to create a new RoboFile.
+  * Initialized here. Please run `vendor/bin/robo init` to create a new RoboFile.
 
 Read more about [how to install composer](https://getcomposer.org/doc/00-intro.md) here.
 
