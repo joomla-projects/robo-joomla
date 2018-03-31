@@ -31,10 +31,16 @@ class TestRunSelenium extends Test
 		$this->printTaskInfo('Starting Selenium (' . $this->seleniumFolder . ') with ' . $this->webDriver . ' (OS: ' . \PHP_OS . ')');
 		$webDriverPath = $this->buildWebDriverPath();
 
-		// Execute the task
-		$this->collectionBuilder()->taskExec('PATH="$PATH:' . $webDriverPath . '" java -jar ' . $this->seleniumFolder .
-			'/bin/selenium-server-standalone.jar >> selenium.log 2>&1 &')->run();
+		if (!$this->isWindows())
+		{
+			$this->collectionBuilder()->taskExec('PATH="$PATH:' . $webDriverPath . '" java -jar ' . $this->seleniumFolder .
+				'/bin/selenium-server-standalone.jar >> selenium.log 2>&1 &')->run();
 
+			return;
+		}
+
+		$this->collectionBuilder()->taskExec('PATH="$PATH:' . $webDriverPath . '" START java.exe -jar ' . $this->seleniumFolder .
+			'/bin/selenium-server-standalone.jar')->run();
 	}
 
 	/**
@@ -78,5 +84,15 @@ class TestRunSelenium extends Test
 	protected function getOsFolderName()
 	{
 		return self::$osFolder[$this->getOs()];
+	}
+
+	/**
+	 * Check if local OS is Windows
+	 *
+	 * @return bool
+	 */
+	private function isWindows()
+	{
+		return strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
 	}
 }
