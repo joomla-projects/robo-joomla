@@ -2,18 +2,17 @@
 namespace JoomlaRobo\Task\Scaffold;
 
 /**
- * Scaffold component
+ * Scaffold plugin
  * 
  * @since 0.1.0
  */
-class ScaffoldComponent extends Scaffold
+class ScaffoldPlugin extends Scaffold
 {
     /**
      * Type of the plugin
      * @var string $type
      */
     protected $type = null;
-
 
     public function run()
     {
