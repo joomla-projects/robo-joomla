@@ -7,9 +7,9 @@ class TestCommands extends \Robo\Tasks
     use \JoomlaRobo\Task\Test\Tasks;
 
     /**
-     * Scaffold a component extensions
+     * Run selenium test
      * 
-     * @command Scaffold:Component
+     * @command Test:Selenium
      * 
      * @param string $name
      */
