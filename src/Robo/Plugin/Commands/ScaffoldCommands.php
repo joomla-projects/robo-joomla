@@ -15,7 +15,7 @@ class ScaffoldCommands extends \Robo\Tasks
      * @param string $name
      * @param string $baseDir
      */    
-    public function Component($name, $baseDir='code') 
+    public function Component($name, $baseDir='src') 
     {
         $this->taskScaffoldComponent($name)
             ->setBaseDir($baseDir)
@@ -30,7 +30,7 @@ class ScaffoldCommands extends \Robo\Tasks
      * @param string $name
      * @param string $baseDir
      */
-    public function Module($name, $baseDir = 'code')
+    public function Module($name, $baseDir = 'src')
     {
         $this->taskScaffoldModule($name)
             ->setBaseDir($baseDir)
@@ -46,7 +46,7 @@ class ScaffoldCommands extends \Robo\Tasks
      * @param string $type
      * @param string $baseDir
      */
-    public function Plugin($name, $type, $baseDir = 'code')
+    public function Plugin($name, $type, $baseDir = 'src')
     {
         $this->taskScaffoldPlugin($name)
             ->setBaseDir($baseDir)
