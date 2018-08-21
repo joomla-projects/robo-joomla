@@ -15,4 +15,14 @@ trait Tasks
     {
         return $this->task(TestRunSelenium::class, $seleniumFolder, $webDriver);
     }
+
+    /**
+     * Run Install Joomla Test
+     *
+     * @return JoomlaRobo\Task\TestInstallJoomla
+     */
+    protected function taskInstallJoomla()
+    {
+        return $this->task(TestInstallJoomla::class);
+    }
 }

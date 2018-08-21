@@ -18,4 +18,41 @@ class TestCommands extends \Robo\Tasks
         $this->taskRunSelenium($name)
             ->run();
     }
+
+	/**
+	 * Run install Joomla
+	 *
+	 * @command Test:InstallJoomla
+	 */
+	public function InstallJoomla()
+	{
+		$this->taskInstallJoomla()
+			->run();
+	}
+
+	/**
+	 * Run install Joomla
+	 *
+	 * @command Test:RunSuite
+	 *
+	 * @param string $name
+	 */
+	public function RunSuite($name)
+	{
+		$this->taskRunSelenium($name)
+			->run();
+	}
+
+	/**
+	 * Run install Joomla
+	 *
+	 * @command Test:RunAll
+	 *
+	 * @param string $name
+	 */
+	public function RunAll($name)
+	{
+		$this->taskRunSelenium($name)
+			->run();
+	}
 }
