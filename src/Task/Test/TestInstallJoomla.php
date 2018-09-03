@@ -18,6 +18,8 @@ class TestInstallJoomla extends Test
 		
 		$this->printTaskInfo('Running Installation');
 
+		$this->createTestingSite($opts['use-htaccess']);
+
 		$pathToCodeception = $this->prepareRun($opts);
 
 		$collection = $this->collectionBuilder();

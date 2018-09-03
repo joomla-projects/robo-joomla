@@ -48,7 +48,18 @@ abstract class Test extends JoomlaTask
      */
     protected static $osFolder = ['linux', 'mac', 'windows'];
 
-    /**
+	/**
+	 * @var array
+	 * @since  0.1.0
+	 */
+	protected $suites = [
+			'acceptance/administrator/components/com_content',
+			'acceptance/administrator/components/com_media',
+			'acceptance/administrator/components/com_menu',
+			'acceptance/administrator/components/com_users',
+	];
+
+	/**
      * Copy the Joomla installation excluding folders
      *
      * @param   string  $dst      Target folder
@@ -181,10 +192,12 @@ abstract class Test extends JoomlaTask
             $collection->taskExec('sed -e "s,# RewriteBase /,RewriteBase /test-install/joomla-cms,g" -in-place test-install/joomla-cms/.htaccess')
                         ->run();
         }
+
+	    $this->printTaskInfo('Copy site finished!');
     }
 
     /**
-     * Prepare the installation
+     * Prepare the running codeception
      *
      * @param   array  $opts  Optional Options
      *
@@ -192,30 +205,47 @@ abstract class Test extends JoomlaTask
      *
      * @since   0.1.0
      */
-    protected function prepareRun($opts = ['use-htaccess' => false, 'env' => 'desktop'])
+    protected function prepareRun()
     {
-        $this->createTestingSite($opts['use-htaccess']);
-
         $collection = $this->collectionBuilder();
+
+	    $this->printTaskInfo('Start server');
 
         $collection->taskRunSelenium(self::SELENIUM_FOLDER, $this->getWebdriver())
                     ->run();
 
 		// Wait until the server started
-        sleep(3);
+        sleep(60);
+
+	    $this->printTaskInfo('Server should have been started now');
 
 		// Make sure to run the build command to generate AcceptanceTester
         if ($this->isWindows()) {
             $collection->taskExec('php ' . $this->getWindowsPath($this->vendorPath . 'bin/codecept') . ' build')
                         ->run();
-            $pathToCodeception = $this->getWindowsPath($this->vendorPath . 'bin/codecept');
         } else {
             $collection->taskExec('php ' . $this->vendorPath . 'bin/codecept build')
                         ->run();
-            $pathToCodeception = $this->vendorPath . 'bin/codecept';
         }
 
-        return $pathToCodeception;
+        return $this->getPathToCodeception();
+    }
+
+	/**
+	 *
+	 * Get the path to codeception
+	 *
+	 * @return string
+	 */
+    protected function getPathToCodeception()
+    {
+	    $pathToCodeception = $this->vendorPath . 'bin/codecept';
+
+	    if ($this->isWindows()) {
+		    $pathToCodeception = $this->getWindowsPath($this->vendorPath . 'bin/codecept');
+	    }
+
+	    return $pathToCodeception;
     }
 
     /**
