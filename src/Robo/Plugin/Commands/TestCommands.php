@@ -31,7 +31,7 @@ class TestCommands extends \Robo\Tasks
 	}
 
 	/**
-	 * Run install Joomla
+	 * Run a test suite
 	 *
 	 * @command Test:RunSuite
 	 *
@@ -44,7 +44,7 @@ class TestCommands extends \Robo\Tasks
 	}
 
 	/**
-	 * Run install Joomla
+	 * Run all tests suites
 	 *
 	 * @command Test:RunAll
 	 *
