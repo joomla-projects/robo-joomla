@@ -2,7 +2,7 @@
     "name": "joomla-projects/robo-joomla",
     "description": "Robo tasks for Joomla! development, build, testing and everything",
     "type": "robo-tasks",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Robert Deutz",
